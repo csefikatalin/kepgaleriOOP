@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saját név</title>
+    <script type="module" src="main.js"></script>
+<style>
+    img {
+        width:100%
+    }
+    .nagykep {
+        display:grid;
+        grid-template-columns: 50px auto 50px;
+    }
+    .galeria {
+        display:grid;
+        grid-template-columns: repeat(3,1fr)
+   
+    }
+</style>
+
+</head>
+<body>
+    <div class="nagykep">
+        <button class="bal">bal</button>
+        <div class="kiemelt">
+            <!-- ide jön a nagykép -->
+        </div>
+        <button class="jobb">jobb</button>
+    </div>
+    <div class="galeria">
+        <!-- itt jelenítjük meg a kisképeket -->
+ 
+    </div>
+</body>
+</html>
