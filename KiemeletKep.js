@@ -2,8 +2,9 @@ import Kep from "./Kep.js";
 
 export default class KiemeltKep extends Kep {
 
-  constructor(kep, cim, szuloElem, hossz) {
-    super(kep, cim, szuloElem);
+  constructor(kep, cim, id,szuloElem, ) {
+    super(kep, cim, id, szuloElem);
+  
     this.megjelenit()
   }
 
@@ -15,6 +16,7 @@ export default class KiemeltKep extends Kep {
                 <h3>${this.cim}</h3>
             </div>
     `;
-    this.szuloElem.innerHTML = html;
+    this.szuloElem.empty()
+    this.szuloElem.append(html);
   }
 }

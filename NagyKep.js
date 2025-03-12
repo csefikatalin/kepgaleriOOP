@@ -4,18 +4,24 @@ import KiemeltKep from "./KiemeletKep.js";
 export default class NagyKep {
   #aktIndex = 0;
   constructor(szuloElem) {
-    this.NAGYKEPELEM = szuloElem;
-    this.balElem = document.querySelector(".bal");
-    this.jobbElem = document.querySelector(".jobb");
-    this.balElem.addEventListener("click", () => {
+    this.NAGYKEPELEM = $(szuloElem);
+   
+    this.balElem = $(".bal");
+    this.jobbElem = $(".jobb");
+    this.balElem.on("click", () => {
         this.#aktIndex--
       this.setIndex(this.#aktIndex);
       
     });
-    this.jobbElem.addEventListener("click", () => {
+    this.jobbElem.on("click", () => {
         this.#aktIndex++
       this.setIndex(this.#aktIndex);
     });
+
+    $(window).on("kivalaszt",(event)=>{
+      console.log(event.detail)
+      this.setIndex(event.detail);
+    })
     this.setIndex(0);
   }
 
@@ -34,9 +40,8 @@ export default class NagyKep {
   beallit() {
     new KiemeltKep(
       KEPEK[this.#aktIndex].kep,
-      KEPEK[this.#aktIndex].cim,
-      this.NAGYKEPELEM,
-      KEPEK.length
+      KEPEK[this.#aktIndex].cim,-1,
+      this.NAGYKEPELEM
     );
   }
 }
